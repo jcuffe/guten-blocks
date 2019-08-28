@@ -2,17 +2,19 @@
 @import "../../common/scss/fonts";
 
 .wp-block-eecontractingllc-hero {
+  @import "../../common/scss/buttons";
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
   background-size: cover;
-  height: 100vh;
+  height: calc(100vh - 100px);
   margin-bottom: 100px;
   padding: 65px 165px;
   color: white;
   transition: all 1s ease-out;
 
   h1 {
+    font-family: "calluna";
     font-size: 70px;
     max-width: 50%;
     margin-bottom: 3px;
@@ -58,6 +60,9 @@
       left: calc(50% - 55px);
       bottom: 0;
       width: 110px;
+    }
+    button {
+      height: 50px;
     }
   }
 
