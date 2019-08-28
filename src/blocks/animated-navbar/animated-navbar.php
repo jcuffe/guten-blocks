@@ -16,7 +16,7 @@ function eecontractingllc__enqueue_animated_navbar_editor_assets()
     plugins_url('animated-navbar-editor.js', __FILE__),
     ['wp-blocks', 'wp-element', 'wp-editor']
   );
-  wp_localize_script('eecontractingllc-animated-navbar-editor', 'nav', $menu);
+  wp_localize_script('eecontractingllc-animated-navbar-editor', 'navMenu', $menu);
   wp_enqueue_script('eecontractingllc-animated-navbar-editor');
 
   wp_enqueue_style(
