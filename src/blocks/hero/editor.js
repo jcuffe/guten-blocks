@@ -1,8 +1,7 @@
 import { MediaUpload } from "@wordpress/editor"
 import { registerBlockType } from "@wordpress/blocks"
-import { imageButton } from "../../common/js/util"
+import { imageButton, processNav } from "../../common/js/util"
 import LogoSplash from "../../common/svg/logo-splash.svg"
-import { interpolate } from "react-spring"
 
 registerBlockType("eecontractingllc/hero", {
   title: "Hero",
@@ -76,13 +75,9 @@ registerBlockType("eecontractingllc/hero", {
     return (
       <div style={`background-image: url('${attributes.imageUrl}')`}>
         <h1 class="headline">{attributes.headline}</h1>
-        <ul>
-          <li>Hello</li>
-        </ul>
+        <ul>{processNav(heroMenu)}</ul>
         <div class="splash">
-          <ul>
-            <li>Hello</li>
-          </ul>
+          <ul>{processNav(navMenu)}</ul>
           <img src={LogoSplash} />
           <button class="primary thick">{attributes.buttonText}</button>
         </div>

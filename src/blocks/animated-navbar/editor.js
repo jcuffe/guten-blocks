@@ -2,7 +2,7 @@ import { registerBlockType } from "@wordpress/blocks"
 import LogoColor from "../../common/svg/logo-color.svg"
 import LogoWhite from "../../common/svg/logo-white.svg"
 import FatBurger from "../../common/svg/fatburger-white.svg"
-console.log(nav)
+import { processNav } from "../../common/js/util"
 
 registerBlockType("eecontractingllc/animated-navbar", {
   title: "Animated Navbar",
@@ -10,7 +10,6 @@ registerBlockType("eecontractingllc/animated-navbar", {
   category: "common",
   attributes: {},
   edit({ attributes, className, setAttributes }) {
-    console.log(nav)
     return (
       <div className={`${className}-editor`}>
         <h1>Animated Navbar</h1>
@@ -24,7 +23,7 @@ registerBlockType("eecontractingllc/animated-navbar", {
         <div class="scrolled">
           <span>
             <img src={LogoColor} />
-            {/* nav menu */}
+            <ul>{processNav(navMenu)}</ul>
           </span>
           <button class="cta">Request a complimentary quote</button>
         </div>
