@@ -2,8 +2,7 @@
 @import "../../common/scss/fonts";
 
 .wp-block-eecontractingllc-service-list-item-editor {
-  padding-top: 15px;
-
+  @import "../../common/scss/headers";
   ul.horizontal,
   ul.vertical {
     display: flex;

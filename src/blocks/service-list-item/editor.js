@@ -40,6 +40,7 @@ registerBlockType("eecontractingllc/service-list-item", {
 
     return (
       <div className={`${className}-editor`}>
+        <h1>Service List Item</h1>
         <ul className="horizontal">
           <li>
             <ul className="vertical">
