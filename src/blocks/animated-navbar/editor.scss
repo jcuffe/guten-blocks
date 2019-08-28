@@ -1,9 +1,8 @@
 @import "../../common/scss/colors";
 @import "../../common/scss/fonts";
 
-.wp-editor-eecontractingllc-service-list-item {
-  padding-top: 15px;
-
+.wp-block-eecontractingllc-animated-navbar-editor {
+  @import "../../common/scss/headers";
   ul.horizontal,
   ul.vertical {
     display: flex;
