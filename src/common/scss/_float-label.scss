@@ -1,0 +1,40 @@
+.float-label {
+  position: relative;
+  line-height: 0;
+
+  label {
+    font-family: $sans;
+    pointer-events: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 21px 0 0 13px;
+    transition: all 200ms;
+    opacity: 0.5;
+  }
+
+  input,
+  textarea {
+    width: 100%;
+    padding-left: 11px;
+  }
+
+  textarea {
+    height: 100%;
+  }
+
+  input {
+    height: 40px;
+  }
+
+  input:focus + label,
+  textarea:focus + label,
+  input:not([value=""]):valid + label,
+  textarea:not(:empty):valid + label,
+  label.always {
+    color: $color-secondary;
+    font-size: 85%;
+    transform: translate3d(0, -160%, 0);
+    opacity: 1;
+  }
+}

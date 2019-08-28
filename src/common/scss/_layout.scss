@@ -1,0 +1,14 @@
+.horizontal,
+.vertical {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.horizontal {
+  flex-direction: row;
+}
+
+.vertical {
+  flex-direction: column;
+}
