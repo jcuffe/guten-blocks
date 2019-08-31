@@ -11,7 +11,7 @@ registerBlockType("eecontractingllc/animated-navbar", {
   attributes: {},
   edit({ attributes, className, setAttributes }) {
     return (
-      <div className={`${className}-editor`}>
+      <div className="wp-block-eecontractingllc-animated-navbar-editor">
         <h1>Animated Navbar</h1>
       </div>
     )
@@ -30,7 +30,7 @@ registerBlockType("eecontractingllc/animated-navbar", {
         <div class="default">
           <img src={LogoWhite} />
           <span>
-            <span class="contact">{attributes.contactNumber}</span>
+            (717) 442-4814
             <img class="fatburger" src={FatBurger} />
           </span>
         </div>
