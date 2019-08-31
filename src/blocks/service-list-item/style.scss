@@ -60,6 +60,7 @@
   }
   p {
     font-size: 23px;
+    line-height: 1;
   }
   .image {
     position: relative;
@@ -70,6 +71,7 @@
       height: 532px;
     }
   }
+
   button {
     margin-top: 50px;
     height: 57px;
@@ -77,24 +79,27 @@
     text-transform: uppercase;
     font-family: "calluna-sans";
     font-size: 15px;
-    &.left {
-      width: 170px;
-      color: $color-secondary;
-      background-color: $color-primary;
-      margin-right: 5px;
-      &:hover {
-        background-color: $color-secondary;
-        color: $color-primary;
-      }
-    }
-    &.right {
-      width: 205px;
-      background-color: white;
+  }
+
+  .left button {
+    color: $color-secondary;
+    width: 170px;
+    background-color: $color-primary;
+    margin-right: 5px;
+
+    &:hover {
       color: $color-primary;
-      &:hover {
-        color: white;
-        background-color: $color-primary;
-      }
+      background-color: $color-secondary;
+    }
+  }
+
+  .right button {
+    color: $color-primary;
+    width: 205px;
+    background-color: white;
+    &:hover {
+      color: white;
+      background-color: $color-primary;
     }
   }
 }

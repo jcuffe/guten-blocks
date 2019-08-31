@@ -1,4 +1,6 @@
-import { MediaUpload } from "@wordpress/editor"
+import { MediaUpload, InspectorControls } from "@wordpress/editor"
+import { Fragment } from "@wordpress/element"
+import { Panel, PanelBody, PanelRow, TextControl } from "@wordpress/components"
 import { registerBlockStyle, registerBlockType } from "@wordpress/blocks"
 import { imageButton, accessibleImage } from "../../common/js/util"
 
@@ -14,15 +16,25 @@ registerBlockType("eecontractingllc/service-list-item", {
     body: {
       type: "array",
       source: "children",
-      selector: ".text div"
+      selector: ".text p"
+    },
+    leftUrl: {
+      attribute: "href",
+      selector: "a.left"
+    },
+    rightUrl: {
+      attribute: "href",
+      selector: "a.right"
     },
     leftButton: {
       source: "text",
-      selector: "button.left"
+      selector: "a.left",
+      default: ""
     },
     rightButton: {
       source: "text",
-      selector: "button.right"
+      selector: "a.right",
+      default: ""
     },
     imageAlt: {
       attribute: "alt",
@@ -39,83 +51,121 @@ registerBlockType("eecontractingllc/service-list-item", {
     }
 
     return (
-      <div className={`${className}-editor`}>
-        <h1>Service List Item</h1>
-        <ul className="horizontal">
-          <li>
-            <ul className="vertical">
-              <li>
-                <input
-                  type="text"
-                  onChange={handleChange}
-                  value={attributes.title}
-                  className="heading"
-                  name="title"
-                />
-                <label for="title">Service Name</label>
-              </li>
+      <Fragment>
+        <InspectorControls>
+          <PanelBody title="Service List Item Settings">
+            <PanelRow>
+              <TextControl
+                label="Left Button Url"
+                onChange={leftUrl => {
+                  console.log(leftUrl)
+                  setAttributes({ leftUrl })
+                }}
+                value={attributes.leftUrl}
+              />
+            </PanelRow>
+            <PanelRow>
+              <TextControl
+                label="Right Button Url"
+                onChange={rightUrl => setAttributes({ rightUrl })}
+                value={attributes.rightUrl}
+              />
+            </PanelRow>
+          </PanelBody>
+        </InspectorControls>
+        <div className="wp-block-eecontractingllc-service-list-item-editor">
+          <h1>Service List Item</h1>
+          <ul className="horizontal">
+            <li>
+              <ul className="vertical">
+                <li>
+                  <input
+                    type="text"
+                    onChange={handleChange}
+                    value={attributes.title}
+                    className="heading"
+                    name="title"
+                  />
+                  <label for="title">Service Name</label>
+                </li>
 
-              <li className="body">
-                <textarea
-                  value={attributes.body}
-                  onChange={handleChange}
-                  name="body"
-                />
-                <label for="body">Service Description</label>
-              </li>
+                <li className="body">
+                  <textarea
+                    value={attributes.body}
+                    onChange={handleChange}
+                    name="body"
+                  />
+                  <label for="body">Service Description</label>
+                </li>
 
-              <li>
-                <ul className="horizontal">
-                  <li>
-                    <input
-                      type="text"
-                      onChange={handleChange}
-                      value={attributes.leftButton}
-                      name="leftButton"
-                    />
-                    <label for="leftButton">Left button text</label>
-                  </li>
-                  <li>
-                    <input
-                      type="text"
-                      onChange={handleChange}
-                      value={attributes.rightButton}
-                      name="rightButton"
-                    />
-                    <label for="rightButton">Right button text</label>
-                  </li>
-                </ul>
-              </li>
-            </ul>
-          </li>
-          <li className="image">
-            <MediaUpload
-              onSelect={media => {
-                setAttributes({ imageAlt: media.alt, imageUrl: media.url })
-              }}
-              type="image"
-              value={attributes.imageID}
-              render={({ open }) => imageButton(attributes, open)}
-              name="image"
-            />
-            <label className="always" for="image">
-              Image
-            </label>
-          </li>
-        </ul>
-      </div>
+                <li>
+                  <ul className="horizontal">
+                    <li>
+                      <input
+                        type="text"
+                        onChange={handleChange}
+                        value={attributes.leftButton}
+                        name="leftButton"
+                      />
+                      <label for="leftButton">Left button text</label>
+                    </li>
+                    <li>
+                      <input
+                        type="text"
+                        onChange={handleChange}
+                        value={attributes.rightButton}
+                        name="rightButton"
+                      />
+                      <label for="rightButton">Right button text</label>
+                    </li>
+                  </ul>
+                </li>
+              </ul>
+            </li>
+            <li className="image">
+              <MediaUpload
+                onSelect={media => {
+                  setAttributes({ imageAlt: media.alt, imageUrl: media.url })
+                }}
+                type="image"
+                value={attributes.imageID}
+                render={({ open }) => imageButton(attributes, open)}
+                name="image"
+              />
+              <label className="always" for="image">
+                Image
+              </label>
+            </li>
+          </ul>
+        </div>
+      </Fragment>
     )
   },
 
   save({ attributes }) {
+    console.log(attributes)
+    if (attributes.rightButton == "") {
+      console.log("EMPTY")
+    }
+    if (attributes.rightButton.length == 0) {
+      console.log("ZERO")
+    }
     return (
       <div>
         <div className="text">
           <h2>{attributes.title}</h2>
-          <div>{attributes.body}</div>
+          <p>{attributes.body}</p>
           <span>
-            <button className="left">{attributes.leftButton}</button>
-            <button className="right">{attributes.rightButton}</button>
+            {attributes.leftButton != "" ? (
+              <a className="left" href={attributes.leftUrl}>
+                <button>{attributes.leftButton}</button>
+              </a>
+            ) : null}
+            {attributes.rightButton != "" ? (
+              <a className="right" href={attributes.rightButton}>
+                <button>{attributes.rightButton}</button>
+              </a>
+            ) : null}
           </span>
         </div>
         <div className="image">
