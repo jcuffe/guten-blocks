@@ -27,7 +27,7 @@ registerBlockType("eecontractingllc/hero", {
       setAttributes({ [name]: value })
     }
     return (
-      <div className={`${className}-editor`}>
+      <div className="wp-block-eecontractingllc-hero-editor">
         <h1>Hero</h1>
         <div className="horizontal">
           <div className="vertical">
@@ -75,9 +75,9 @@ registerBlockType("eecontractingllc/hero", {
     return (
       <div style={`background-image: url('${attributes.imageUrl}')`}>
         <h1 class="headline">{attributes.headline}</h1>
-        <ul>{processNav(heroMenu)}</ul>
+        <ul class="hero-menu">{processNav(heroMenu)}</ul>
         <div class="splash">
-          <ul>{processNav(navMenu)}</ul>
+          <ul class="splash-menu">{processNav(navMenu)}</ul>
           <img src={LogoSplash} />
           <button class="primary thick">{attributes.buttonText}</button>
         </div>
