@@ -1,0 +1,40 @@
+@import "../../common/scss/colors";
+
+.wp-block-eecontractingllc-image-blurb {
+  margin: 0 auto 140px;
+  display: flex;
+  justify-content: center;
+
+  .image {
+    margin-right: 50px;
+    position: relative;
+    &::after {
+      content: "";
+      display: block;
+      position: absolute;
+      background-color: #f8f3e6;
+      width: 630px;
+      height: 220px;
+      bottom: -60px;
+      right: 150px;
+      z-index: -1;
+    }
+  }
+
+  h2 {
+    font-size: 38px;
+    margin-bottom: 5px;
+  }
+
+  p {
+    font-size: 18px;
+    line-height: 25px;
+    width: 330px;
+    padding: 45px;
+  }
+
+  img {
+    width: 355px;
+    height: 520px;
+  }
+}
