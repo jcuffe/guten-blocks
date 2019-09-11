@@ -51,6 +51,8 @@
 
   .image {
     position: relative;
+    height: 475px;
+    overflow: hidden;
     &::after {
       content: "";
       display: block;
@@ -66,6 +68,5 @@
 
   img {
     width: 980px;
-    height: 475px;
   }
 }
