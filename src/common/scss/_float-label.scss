@@ -27,6 +27,10 @@
 
   textarea {
     height: 100%;
+
+    &[name="body"] {
+      flex-grow: 1;
+    }
   }
 
   input {

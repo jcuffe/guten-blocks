@@ -1,0 +1,19 @@
+@import "../../common/scss/colors";
+
+.wp-block-eecontractingllc-carousel-blurb {
+  display: flex;
+  justify-content: center;
+  .left {
+    display: flex;
+    flex-direction: column;
+    width: 475px;
+  }
+  .right {
+    display: block;
+    width: 625px;
+    img {
+      height: 450px;
+      width: 600px;
+    }
+  }
+}

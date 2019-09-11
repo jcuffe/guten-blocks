@@ -1,5 +1,6 @@
 .horizontal,
-.vertical {
+.vertical,
+.gallery {
   display: flex;
 }
 
@@ -14,6 +15,15 @@
   }
 }
 
-.vertical {
+.vertical,
+.gallery {
   flex-direction: column;
+}
+
+.gallery img {
+  margin-bottom: 10px;
+}
+
+.gallery img:last-child {
+  margin-bottom: 0px;
 }

@@ -16,6 +16,26 @@ export const imageButton = (attributes, openEvent) => {
   }
 }
 
+export const galleryButton = (attributes, openEvent) => {
+  if (attributes.images && attributes.images.length > 0) {
+    return (
+      <div className="gallery">
+        {attributes.images.map(image => (
+          <img src={image.url} onClick={openEvent} className="image" />
+        ))}
+      </div>
+    )
+  } else {
+    return (
+      <div className="button-container">
+        <Button onClick={openEvent} className="button button-large">
+          Choose images
+        </Button>
+      </div>
+    )
+  }
+}
+
 export const accessibleImage = (src, alt) => {
   if (!src) return null
 
