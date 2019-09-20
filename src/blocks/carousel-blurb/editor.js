@@ -9,15 +9,15 @@ registerBlockType("eecontractingllc/carousel-blurb", {
   attributes: {
     heading: {
       source: "text",
-      selector: ".left h2"
+      selector: ".body h2"
     },
     body: {
       source: "text",
-      selector: ".left p"
+      selector: ".body p"
     },
     linkText: {
       source: "text",
-      selector: ".left a"
+      selector: ".body a"
     },
     images: {
       type: "array",
@@ -55,7 +55,7 @@ registerBlockType("eecontractingllc/carousel-blurb", {
               />
               <label for="heading">Heading</label>
             </div>
-            <div className="float-label">
+            <div className="float-label body">
               <textarea
                 name="body"
                 type="text"
@@ -103,17 +103,21 @@ registerBlockType("eecontractingllc/carousel-blurb", {
   save({ attributes }) {
     return (
       <div>
-        <div className="left">
+        <div className="body">
           <h2>{attributes.heading}</h2>
-          <p>{attributes.body}</p>
-          <a>{attributes.linkText}</a>
+          <div>
+            <p>{attributes.body}</p>
+            <a>{attributes.linkText}</a>
+          </div>
         </div>
-        <div className="right">
+
+        <div className="carousel">
           <div className="slider">
             {attributes.images.map(image =>
               accessibleImage(image.url, image.alt)
             )}
           </div>
+          <div className="controls" />
         </div>
       </div>
     )

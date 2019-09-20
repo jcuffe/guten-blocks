@@ -1,19 +1,114 @@
 @import "../../common/scss/colors";
 
 .wp-block-eecontractingllc-carousel-blurb {
+  position: relative;
   display: flex;
   justify-content: center;
-  .left {
+  padding-bottom: 40px;
+  margin-bottom: 300px;
+
+  h2 {
+    font-size: 36px;
+    line-height: 68px;
+    letter-spacing: 6px;
+    color: $color-secondary;
+    text-transform: uppercase;
+  }
+
+  p {
+    margin-bottom: 75px;
+    font-size: 18px;
+    line-height: 39px;
+    color: white;
+    font-family: "calluna-sans";
+  }
+
+  a {
+    color: white;
+    text-transform: uppercase;
+    font-family: "calluna-sans";
+  }
+
+  .body {
     display: flex;
     flex-direction: column;
+    justify-content: space-between;
     width: 475px;
+    margin-right: 80px;
   }
-  .right {
+
+  .carousel {
     display: block;
     width: 625px;
     img {
       height: 450px;
       width: 600px;
     }
+    .controls {
+      margin-top: 30px;
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+    }
+  }
+
+  &::after {
+    content: "";
+    display: block;
+    position: absolute;
+    background-color: $color-secondary;
+    height: 325px;
+    width: 100%;
+    z-index: -1;
+    bottom: 0;
+  }
+
+  .controls .slick-arrow {
+    margin-left: 10px;
+    font-size: 0;
+    line-height: 0;
+    height: 7px;
+    width: 20px;
+    border: 0;
+    outline: 0;
+    color: transparent;
+    background-color: transparent;
+  }
+
+  .slick-dots button {
+    position: relative;
+    font-size: 0;
+    line-height: 0;
+    display: block;
+    width: 20px;
+    height: 20px;
+    padding: 5px;
+    cursor: pointer;
+    color: transparent;
+    border: 0;
+    outline: none;
+    background: transparent;
+
+    &::before {
+      display: block;
+      font-family: "slick";
+      font-size: 30px;
+      line-height: 20px;
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 20px;
+      height: 20px;
+      content: "•";
+      text-align: center;
+      color: white;
+    }
+    &:hover::before {
+      color: $color-primary;
+    }
+  }
+
+  .slick-active button::before {
+    color: $color-primary;
   }
 }

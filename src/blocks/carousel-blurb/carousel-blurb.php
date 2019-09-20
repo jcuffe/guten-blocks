@@ -11,6 +11,7 @@ function eecontractingllc__enqueue_carousel_blurb_editor_assets()
     ['wp-blocks', 'wp-element', 'wp-editor']
   );
 
+
   wp_enqueue_style(
     'eecontractingllc-carousel-blurb-editor',
     plugins_url('carousel-blurb-editor.css', __FILE__),
@@ -31,6 +32,8 @@ function eecontractingllc__enqueue_carousel_blurb_frontend_assets()
     plugins_url('carousel-blurb-behavior.js', __FILE__),
     ['slick-carousel', 'jquery']
   );
+
+  wp_localize_script('eecontractingllc-carousel-blurb-behavior', 'assets', plugins_url('../src/common', __FILE__));
 
   wp_enqueue_style(
     'slick-carousel',
