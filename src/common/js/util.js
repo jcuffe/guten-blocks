@@ -49,9 +49,9 @@ export const accessibleImage = (src, alt) => {
 
 export const processNav = nav => {
   const items = {}
-  nav.forEach(({ ID, title, url, menu_item_parent }) => {
+  nav.forEach(({ ID, title, url, menu_item_parent, menu_order }) => {
     if (menu_item_parent == "0") {
-      items[ID] = { title, url, children: [] }
+      items[ID] = { title, url, children: [], menu_order }
     }
   })
   nav.forEach(({ title, url, menu_item_parent }) => {
@@ -60,7 +60,10 @@ export const processNav = nav => {
     }
   })
 
-  const navMenuElements = Object.values(items).map(item => (
+  const sortedNavItems = Object.values(items).sort(
+    (a, b) => a.menu_order - b.menu_order
+  )
+  const navMenuElements = sortedNavItems.map(item => (
     <li>
       <a href={item.url}>{item.title}</a>
       {item.children.length ? (
