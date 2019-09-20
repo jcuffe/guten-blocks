@@ -85,7 +85,7 @@ registerBlockType("eecontractingllc/three-column-image-blurb", {
                   value={attributes.headingOne}
                   onChange={handleChange}
                 />
-                <label for="subHeading">Heading One</label>
+                <label for="headingOne">Heading One</label>
               </div>
               <div className="float-label">
                 <textarea
@@ -93,7 +93,7 @@ registerBlockType("eecontractingllc/three-column-image-blurb", {
                   value={attributes.bodyOne}
                   onChange={handleChange}
                 />
-                <label for="heading">Body One</label>
+                <label for="bodyOne">Body One</label>
               </div>
             </div>
             <div className="vertical">
@@ -104,7 +104,7 @@ registerBlockType("eecontractingllc/three-column-image-blurb", {
                   value={attributes.headingTwo}
                   onChange={handleChange}
                 />
-                <label for="subHeading">Heading Two</label>
+                <label for="headingTwo">Heading Two</label>
               </div>
               <div className="float-label">
                 <textarea
@@ -112,7 +112,7 @@ registerBlockType("eecontractingllc/three-column-image-blurb", {
                   value={attributes.bodyTwo}
                   onChange={handleChange}
                 />
-                <label for="heading">Body Two</label>
+                <label for="bodyTwo">Body Two</label>
               </div>
             </div>
             <div className="vertical">
@@ -123,7 +123,7 @@ registerBlockType("eecontractingllc/three-column-image-blurb", {
                   value={attributes.headingThree}
                   onChange={handleChange}
                 />
-                <label for="subHeading">Heading Three</label>
+                <label for="headingThree">Heading Three</label>
               </div>
               <div className="float-label">
                 <textarea
@@ -131,7 +131,7 @@ registerBlockType("eecontractingllc/three-column-image-blurb", {
                   value={attributes.bodyThree}
                   onChange={handleChange}
                 />
-                <label for="heading">Body Three</label>
+                <label for="bodyThree">Body Three</label>
               </div>
             </div>
           </div>
