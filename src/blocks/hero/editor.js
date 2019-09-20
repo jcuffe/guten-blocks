@@ -1,7 +1,6 @@
 import { MediaUpload } from "@wordpress/editor"
 import { registerBlockType } from "@wordpress/blocks"
-import { imageButton, processNav } from "../../common/js/util"
-import LogoSplash from "../../common/svg/logo-splash.svg"
+import { imageButton } from "../../common/js/util"
 
 registerBlockType("eecontractingllc/hero", {
   title: "Hero",
@@ -9,16 +8,13 @@ registerBlockType("eecontractingllc/hero", {
   category: "common",
   attributes: {
     headline: {
-      source: "text",
-      selector: ".headline"
+      type: "string"
     },
     buttonText: {
-      source: "text",
-      selector: "button"
+      type: "string"
     },
     imageUrl: {
-      type: "string",
-      default: null
+      type: "string"
     }
   },
 
@@ -70,18 +66,5 @@ registerBlockType("eecontractingllc/hero", {
       </div>
     )
   },
-
-  save: function({ attributes }) {
-    return (
-      <div style={`background-image: url('${attributes.imageUrl}')`}>
-        <h1 class="headline">{attributes.headline}</h1>
-        <ul class="hero-menu">{processNav(heroMenu)}</ul>
-        <div class="splash">
-          <ul class="splash-menu">{processNav(navMenu)}</ul>
-          <img src={LogoSplash} />
-          <button class="primary thick">{attributes.buttonText}</button>
-        </div>
-      </div>
-    )
-  }
+  save: () => null
 })
