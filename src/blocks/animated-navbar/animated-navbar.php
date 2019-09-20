@@ -17,6 +17,7 @@ function eecontractingllc__enqueue_animated_navbar_editor_assets()
     ['wp-blocks', 'wp-element', 'wp-editor']
   );
   wp_localize_script('eecontractingllc-animated-navbar-editor', 'navMenu', $menu);
+  wp_localize_script('eecontractingllc-animated-navbar-editor', 'assets', plugins_url('../src/common', __FILE__));
   wp_enqueue_script('eecontractingllc-animated-navbar-editor');
 
   wp_enqueue_style(

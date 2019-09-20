@@ -1,7 +1,6 @@
 import { registerBlockType } from "@wordpress/blocks"
 import LogoColor from "../../common/svg/logo-color.svg"
 import LogoWhite from "../../common/svg/logo-white.svg"
-import FatBurger from "../../common/svg/fatburger-white.svg"
 import { processNav } from "../../common/js/util"
 
 registerBlockType("eecontractingllc/animated-navbar", {
@@ -22,16 +21,16 @@ registerBlockType("eecontractingllc/animated-navbar", {
       <div>
         <div class="scrolled">
           <span>
-            <img src={LogoColor} />
+            <img src={`${assets}/svg/logo-color.svg`} />
             <ul>{processNav(navMenu)}</ul>
           </span>
           <button class="cta">Request a complimentary quote</button>
         </div>
         <div class="default">
-          <img src={LogoWhite} />
+          <img src={`${assets}/svg/logo-white.svg`} />
           <span>
             (717) 442-4814
-            <img class="fatburger" src={FatBurger} />
+            <img class="fatburger" src={`${assets}/svg/fatburger-white.svg`} />
           </span>
         </div>
       </div>
